@@ -76,8 +76,8 @@ namespace Sign.Core
         }
 
         [DynamicDependency(DynamicallyAccessedMemberTypes.NonPublicProperties | DynamicallyAccessedMemberTypes.NonPublicMethods, typeof(SignPackageRequest))]
-        [UnconditionalSuppressMessage("Trimming", "IL2075", Justification = "SignPackageRequest.Chain is preserved by DynamicDependency.")]
-        [UnconditionalSuppressMessage("Trimming", "IL2072", Justification = "SignPackageRequest.Chain is preserved by DynamicDependency.")]
+        [UnconditionalSuppressMessage("Trimming", "IL2075", Justification = "SignPackageRequest non-public members are preserved by DynamicDependency to support reflection-based access to the Chain property and its getter.")]
+        [UnconditionalSuppressMessage("Trimming", "IL2072", Justification = "SignPackageRequest non-public members are preserved by DynamicDependency to support reflection-based access to the Chain property and its getter.")]
         private PrimarySignature CreatePrimarySignature(AuthorSignPackageRequest request, SignatureContent signatureContent, ILogger logger)
         {
             logger.LogInformation($"{nameof(CreateAuthorSignatureAsync)}: Retrieving certificate chain");
