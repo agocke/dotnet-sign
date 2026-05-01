@@ -242,22 +242,32 @@ namespace System.Deployment.Internal.CodeSigning
         private const string Sha256SignatureMethodUri = @"http://www.w3.org/2000/09/xmldsig#rsa-sha256";
         private const string Sha256DigestMethod = @"http://www.w3.org/2000/09/xmldsig#sha256";
 
+        [RequiresDynamicCode("XML manifest signing uses CryptoConfig which requires dynamic code.")]
+        [RequiresUnreferencedCode("XML manifest signing uses CryptoConfig which requires unreferenced types to be preserved.")]
         internal ManifestSignedXml2()
             : base()
         {
             init();
         }
+
+        [RequiresDynamicCode("XML manifest signing uses CryptoConfig which requires dynamic code.")]
+        [RequiresUnreferencedCode("XML manifest signing uses CryptoConfig which requires unreferenced types to be preserved.")]
         internal ManifestSignedXml2(XmlElement elem)
             : base(elem)
         {
             init();
         }
+
+        [RequiresDynamicCode("XML manifest signing uses CryptoConfig which requires dynamic code.")]
+        [RequiresUnreferencedCode("XML manifest signing uses CryptoConfig which requires unreferenced types to be preserved.")]
         internal ManifestSignedXml2(XmlDocument document)
             : base(document)
         {
             init();
         }
 
+        [RequiresDynamicCode("XML manifest signing uses CryptoConfig which requires dynamic code.")]
+        [RequiresUnreferencedCode("XML manifest signing uses CryptoConfig which requires unreferenced types to be preserved.")]
         internal ManifestSignedXml2(XmlDocument document, bool verify)
             : base(document)
         {
