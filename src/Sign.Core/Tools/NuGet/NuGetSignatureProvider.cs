@@ -2,6 +2,7 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE.txt file in the project root for more information.
 
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Security.Cryptography.Pkcs;
@@ -74,6 +75,9 @@ namespace Sign.Core
             return timestampedAuthorSignature;
         }
 
+        [DynamicDependency(DynamicallyAccessedMemberTypes.NonPublicProperties | DynamicallyAccessedMemberTypes.NonPublicMethods, typeof(SignPackageRequest))]
+        [UnconditionalSuppressMessage("Trimming", "IL2075", Justification = "SignPackageRequest.Chain is preserved by DynamicDependency.")]
+        [UnconditionalSuppressMessage("Trimming", "IL2072", Justification = "SignPackageRequest.Chain is preserved by DynamicDependency.")]
         private PrimarySignature CreatePrimarySignature(AuthorSignPackageRequest request, SignatureContent signatureContent, ILogger logger)
         {
             logger.LogInformation($"{nameof(CreateAuthorSignatureAsync)}: Retrieving certificate chain");

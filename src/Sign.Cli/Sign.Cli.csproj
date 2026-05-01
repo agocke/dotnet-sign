@@ -9,6 +9,7 @@
     <PackageDescription>Sign CLI</PackageDescription>
     <PackageReadmeFile>PACKAGE.md</PackageReadmeFile>
     <PackAsTool>true</PackAsTool>
+    <PublishAot>true</PublishAot>
     <RollForward>Major</RollForward>
     <RootNamespace>Sign.Cli</RootNamespace>
     <SelfContained>false</SelfContained>

@@ -267,6 +267,7 @@ namespace System.Deployment.Internal.CodeSigning
 
         private void init()
         {
+#pragma warning disable IL2026, IL3050 // CryptoConfig is not AOT-safe but required for XML manifest signing
             CryptoConfig.AddAlgorithm(typeof(Sign.Core.RSAPKCS1SHA256SignatureDescription),
                                Sha256SignatureMethodUri);
 
@@ -279,6 +280,7 @@ namespace System.Deployment.Internal.CodeSigning
             CryptoConfig.AddAlgorithm(typeof(System.Security.Cryptography.SHA256Cng),
                                Sha256DigestMethod);
 #endif
+#pragma warning restore IL2026, IL3050
         }
 
         public override XmlElement GetIdElement(XmlDocument document, string idValue)

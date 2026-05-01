@@ -18,7 +18,7 @@ namespace Sign.Core
 
         public sealed override AsymmetricSignatureDeformatter CreateDeformatter(AsymmetricAlgorithm key)
         {
-            var item = (AsymmetricSignatureDeformatter)CryptoConfig.CreateFromName(DeformatterAlgorithm!)!;
+            var item = new RSAPKCS1SignatureDeformatter();
             item.SetKey(key);
             item.SetHashAlgorithm(DigestAlgorithm!);
             return item;
@@ -26,7 +26,7 @@ namespace Sign.Core
 
         public sealed override AsymmetricSignatureFormatter CreateFormatter(AsymmetricAlgorithm key)
         {
-            var item = (AsymmetricSignatureFormatter)CryptoConfig.CreateFromName(FormatterAlgorithm!)!;
+            var item = new RSAPKCS1SignatureFormatter();
             item.SetKey(key);
             item.SetHashAlgorithm(DigestAlgorithm!);
             return item;
